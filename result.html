@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>GrowbalActive Quiz Application</title>
+  </head>
+  <body>
+    <div id="text_r"></div>
+    <script>
+      function redata(){
+        var data = location.search.substring(1, location.search.length);
+        data = unescape(data);
+        document.getElementById("text_r").innerHTML = "合計ポイント:" + data;
+      }
+      window.onload = redata;
+    </script>
+  </body>
+</html>
