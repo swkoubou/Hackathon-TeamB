@@ -3,15 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GrowbalActive Quiz Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css-master/animate.min.css" rel="stylesheet">
+    <link href="css/quiz.css" rel="stylesheet">
   </head>
   <body>
-    <h2>Quiz</h2>
-    <div id="text_q"></div>
-    <h2>Choices</h2>
-　　<div id="text_s"></div>
-    <div id="text_a"></div>
+    <center><div class="jumbotron jumbotron-extend">
+      <div class="container-fluid jumbotron-container">
+        <div id="title1"></div>
+        <div id="text_q"></div>
+        <div id="title2"></div>
+　　    <div id="text_s"></div>
+        <div id="text_a"></div>
+      </div>
+    </div></center>
      <script>
       //全問題の配列
       qa = new Array();
@@ -19,7 +27,7 @@
       qa[1] = ["広瀬君は前期グロアの中のどのプロジェクトに所属していたでしょう？","Typhoon","ARアプリ","CLITwitter","Exchange md5","2"];
       qa[2] = ["りゅーぺちのフルネームは？","木下竜一","松下竜一","森下竜一","松本竜一","1"];
       qa[3] = ["内田君が好む女性の条件は？","Dカップ以上の女性","20代前半","男の娘","JC","1"];
-      qa[4] = ["雄大君はグロアのラブライバーとして有名ですがそのなかで好きな人は誰でしょう？","はなよちゃん♡","弓道部","ダンス","和菓子屋","戦車道","1"];
+      qa[4] = ["雄大君はグロアのラブライバーとして有名ですがそのなかで好きな人は誰でしょう？","はなよちゃん♡","海未ちゃん♡","絵里ちゃん♡","穂乃果ちゃん♡","1"];
       qa[5] = ["雄大君はラブライブの以上に好きなアニメがあるのですがその好きなアニメはどれでしょう？","ガールズ＆パンツァー","Fate","SETEINS;GATE","けいおん","ジョジョ","3"];
       qa[6] = ["オープンキャンパス前日来なかった人や遅刻した人は何人？","5人","6人","7人","8人","3"];    
       qa[7] = ["オープンキャンパスに参加したのは何人か？","7人","8人","9人","10人","4"];
@@ -59,7 +67,17 @@
       qa[43] = ["Googleの株価は世界で第何位？","3","4","7","5","3"];   
       qa[44] = ["ダウ平均株価は経済ニュース通信社であるダウ・？社が算出する株価指数である","ジョーンズ","ジェームズ","ジョセフ","ジョナサン","1"];   
       qa[45] = ["「世界で最も憂慮すべき問題」は何かを選んでもらうという調査で一番多かった回答は","核兵器","宗教・民族対立","社会格差","環境汚染","3"];
-  
+      qa[46] = ["GAの目標は次のうちどれ？","ソフトフェア工房の歴史に刻むような傑作物を一つ作る","個人スキルの能力アップ・コミュニケーション能力の向上","神奈川工科大学の歴史に名を残すような画期的なソフトフェアを作成する","実はない","1"];
+      qa[47] = ["GAのドロップボックスには同人誌などが入っています、２つは「つゆまみれ」ですがのこり１冊は何でしょう？","雑誌快楽天ビースト","雑誌GirlsforM","雑誌COMIC","雑誌華漫","3"]; 
+      qa[48] = ["世界一背の高い人間の名前は？","ロバート・ワドロー","スヴェトラナ・パンクラトワ","ジョン・ブラワー","ジャンヌ・ルイーズ","1"]; 
+      qa[49] = ["ゲームソフト「世界一長い５分間」を作った会社は？","日本一ソフトウェア","バンダイナムコゲームス","サイバーコネクトツー","日本ファルコム","1"]; 
+      qa[50] = ["「世界に誇れる日本企業」アンケートのランキングでソニーは第何位？","1","6","2","9","2"]; 
+      qa[51] = ["世界一威力の大きな核爆弾の威力は何メガトロン？","50","60","40","80","1"]; 
+      qa[52] = ["能動素子とはどれでしょう","真空管・トランジスタ・ダイオード・ICなど","小麦粉・砂糖・塩など","酸性・中性・アルカリ性など","精子・受精卵・血液など","1"]; 
+      qa[53] = ["世界各国の会社の夏休みは約３０日間であるが日本は何日あるでしょう？","10日","3日","20日","5日","2"]; 
+      qa[54] = ["ポケモンGOの普及で７月末の交通事故は前年より何％増えた？","３０％","５０％","７０％","実は減っている","4"]; 
+      qa[] = ["日本の排他的経済水域の面積は世界第何位？","1位","3位","4位","6位","4"];
+      qa[] = ["日本は世界第何位の農業大国か？","3位","6位","5位","4位","2"];
       //初期設定
       count = 0;
       q_sel = 4; //選択肢の数
@@ -76,16 +94,19 @@
         rnd = Math.floor(Math.random() * qa.length);
 	if (randam.indexOf(rnd) == -1 ){
 	  randam.push(rnd);	
-
+	  //タイトル１
+　　　　　document.getElementById("title1").innerHTML = "<div class='animated rollIn'><h1>Quiz</h1></div>";
+	  
           //問題
-          document.getElementById("text_q").innerHTML = (count + 1) + "問目：" + qa[rnd][0];
+          document.getElementById("text_q").innerHTML = "<div class='animated rollIn'><h2>" + (count + 1) + "問目：" + qa[rnd][0] + "</h2></div>";
 
+	  //タイトル２
+	　document.getElementById("title2").innerHTML = "<div class='animated rollIn'><h1>Coices</h1></div>";
           //選択肢
           s = "";
 
         for (n=1;n<=q_sel;n++) {
-		//s += "<a href='javascript:anser(" + n + ")'>" + n + "：" + qa[rnd][n] + "</a>";
-		s += "<input type='radio' name='radio1' onClick='javascript:anser(" + n + ")'>" + qa[rnd][n] + "<br>";
+		s += "<div class='animated rollIn'><h2><input type='radio' name='radio1' onClick='javascript:anser(" + n + ")'>" + qa[rnd][n] + "</h2></div><br>";
         }
         document.getElementById("text_s").innerHTML = s;
         } else {
@@ -114,4 +135,3 @@
     </script>
   </body>
 <html>
-

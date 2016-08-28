@@ -3,16 +3,44 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GrowbalActive Quiz Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css-master/animate.min.css" rel="stylesheet">
+    <link href="css/result.css" rel="stylesheet">
   </head>
   <body>
-    <div id="text_r"></div>
+　　<center><div class="jumbotron jumbotron-extend">
+      <div class="panel-heading"></div>
+        <div class="container-fluid jumbotron-container">
+        <div id="title1"></div>
+        <div id="text_r"></div>
+        <div id="text_c"></div>
+        <p><a class="btn btn-link btn-lg animated fadeIn anime4" href="toppage.html" role="button">トップページへ戻る</a></p>
+      </div>
+    </div></center>
     <script>
       function redata(){
+	document.getElementById("title1").innerHTML = "<div class='animated fadeIn test-animation'><h1>合計ポイントは・・・</h1></div>";
         var data = location.search.substring(1, location.search.length);
         data = unescape(data);
-        document.getElementById("text_r").innerHTML = "合計ポイント:" + data;
+
+	if(data < 3){
+		document.getElementById("text_c").innerHTML = "<div class='animated fadeIn anime3'><h2>これは酷い･･･　あなたは本当にグロアのメンバーですか？失望しました･･･</h2></div>";
+	}else if(data < 7){
+		document.getElementById("text_c").innerHTML = "<div class='animated fadeIn anime3'><h2>まだまだグロアメンバーとしては半人前ですね!(笑)　もう少し頑張りましょう!!</h2></div>";
+	}else if(data < 11){
+		document.getElementById("text_c").innerHTML = "<div class='animated fadeIn anime3'><h2>一人前のグロアメンバーです!!　これからもグロアを知る努力を怠らないようにしていきましょう!!</h2></div>";
+	}else if(data < 14){
+		document.getElementById("text_c").innerHTML = "<div class='animated fadeIn anime3'><h2>見事です!!　あと少しでグロアマスターです!!　もう少し上を目指してみてはどうでしょう？</h2></div>";
+	}else if(data < 16){
+		document.getElementById("text_c").innerHTML = "<div class='animated fadeIn anime3'><h2>素晴らしいですね!!　あなたはこれから坂本君に変わってグロアのリーダーです!!</h2></div>";
+	}else{
+	}
+
+	document.getElementById("text_r").innerHTML = "<div class='animated fadeIn test-animation2'><h1>" + data + "ポイント!!!</h1></div>";
+        	
       }
       window.onload = redata;
     </script>
