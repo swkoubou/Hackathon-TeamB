@@ -1,0 +1,34 @@
+body{
+        overflow: hidden;
+        height: 100vh;
+        font-size: 0;
+        line-height: 0;
+}
+.jumbotron-extend{
+        position: relative;
+        height: 100vh;
+        min-height: 300px;
+        margin-bottom: 0;
+        padding: 15px;
+}
+.jumbotron-container{
+	position: relative;
+        top: 40%;
+        transform: translateY(-60%);
+}
+.test-animation{
+	-webkit-animation-duration: 6s;
+	animation-duration: 6s;
+}
+.test-animation2{
+	-webkit-animation-duration: 3s;
+	animation-delay: 3s;
+}
+.anime3{
+	-webkit-animation-duration: 2s;
+	animation-delay: 5s;
+}
+.anime4{
+	-webkit-animation-duration: 2s;
+        animation-delay: 5s;
+}
